@@ -6,10 +6,28 @@ module.exports = class PeopleService {
     }
 
     updatePeople(id, people) {
-        // To be implemented!
+        const indexpeple = this.peoples.findIndex(
+            people => people.id === id
+        );
+        this.peoples[indexpeple] = people;
+         
+        if(indexpeple < 0 ){
+            return Promise.reject('bug id');
+        }
+
+        return {isModified: true}     
     }
     
     getPeople(filters) {
-        // To be implemented!
+       let allPeople = []
+       console.log("filtersssssss"+filters)
+       if(Object.keys(filters).length === 0){
+           return this.peoples;
+       }else{
+           const indexpeple = this.peoples.filter(
+               people => people[Object.keys(filters)[0]]===filters[Object.keys(filters)[0]]
+           );
+           return indexpeple;
+       }   
     }
 }
