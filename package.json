@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest & npm run lint",
+    "test": "jest",
     "test:watch": "jest --watch",
     "eslint": "./node_modules/.bin/eslint \"./**/*.js\"",
     "start:rest":"nodemon node api/index.js",
